@@ -3,245 +3,965 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Carol Kao – 履歷</title>
+  <title>Carol Kao – Portfolio</title>
   <style>
-    body { font-family: Arial,"微軟正黑體",sans-serif; max-width: 900px; margin: 40px auto; line-height: 1.7; padding: 0 16px; }
-    h1 { font-size: 32px; margin-bottom: 8px; }
-    h2 { margin-top: 28px; border-bottom: 2px solid #eee; padding-bottom: 6px; color:#2c3e50; }
-    h3 { margin-top: 18px; color:#34495e; }
-    h4 { margin-top: 12px; font-weight: normal; color:#555; }
-    ul { padding-left: 20px; }
-    li { margin-bottom: 6px; }
-    .center { text-align: center; margin: 20px 0; }
+    :root {
+      --bg: #f7f8fb;
+      --card-bg: #ffffff;
+      --primary: #2c3e50;
+      --accent: #e74c3c;
+      --text: #333333;
+      --muted: #777777;
+      --border: #e0e4eb;
+      --shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+      --radius-lg: 18px;
+      --radius-sm: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "微軟正黑體", sans-serif;
+      background: radial-gradient(circle at top left, #eef3ff 0, #f7f8fb 40%, #ffffff 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ====== Header / Nav ====== */
+    .site-shell {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(247, 248, 251, 0.96), rgba(247, 248, 251, 0.88), transparent);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 0.04em;
+    }
+
+    .brand-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 18px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(248, 113, 113, 0.4);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      font-size: 14px;
+    }
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    }
+    .nav-links a:hover {
+      background: rgba(226, 232, 240, 0.9);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    /* ====== Sections / Layout ====== */
+    main {
+      padding-top: 24px;
+    }
+
+    .section {
+      margin-top: 24px;
+    }
+
+    .section-header {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      color: var(--primary);
+      border-bottom: 2px solid rgba(148, 163, 184, 0.5);
+      padding-bottom: 4px;
+      display: inline-block;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ====== Hero ====== */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.9fr);
+      gap: 24px;
+      margin-top: 20px;
+      align-items: stretch;
+    }
+
+    .hero-card {
+      background: var(--card-bg);
+      border-radius: 26px;
+      padding: 22px 22px 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      margin: 0;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-tagline {
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      font-size: 12px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(248, 250, 252, 0.9);
+      color: #475569;
+      white-space: nowrap;
+    }
+
+    .pill.accent {
+      border-color: rgba(248, 113, 113, 0.6);
+      background: rgba(254, 242, 242, 0.95);
+      color: #b91c1c;
+    }
+
+    .hero-body {
+      font-size: 14px;
+      color: #374151;
+    }
+
+    .hero-body p {
+      margin: 0 0 6px;
+    }
+
+    .hero-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-right: 10px;
+    }
+
+    .hero-meta-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: #16a34a;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .stat-card {
+      background: rgba(15, 23, 42, 0.94);
+      border-radius: 26px;
+      padding: 16px 14px 12px;
+      color: #e5e7eb;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      text-align: center;
+    }
+
+    .stat-card-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+
+    .stat-card img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 4px 0;
+    }
+
+    .stat-card-footer {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .stat-badge-row {
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .stat-badge-row img {
+      width: 160px;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 10px 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .contact-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .contact-chip {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: #f9fafb;
+      color: #4b5563;
+      white-space: nowrap;
+    }
+
+    /* ====== Skills / Certs ====== */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: var(--primary);
+    }
+
+    .card small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4338ca;
+      white-space: nowrap;
+    }
+
+    .cert-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 8px 0 0;
+      max-height: 260px;
+      overflow-y: auto;
+      font-size: 13px;
+    }
+
+    .cert-list li {
+      margin-bottom: 4px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .cert-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #94a3b8;
+    }
+
+    /* ====== Experience ====== */
+    .exp-section {
+      margin-top: 8px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 2.9fr);
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .exp-section-title {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 15px;
+    }
+
+    .exp-section-desc {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .exp-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+    }
+
+    .exp-card-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 4px;
+      align-items: baseline;
+    }
+
+    .exp-role {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .exp-org {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .exp-title {
+      margin: 2px 0 6px;
+      font-size: 13px;
+      color: #4b5563;
+      font-weight: 500;
+    }
+
+    .exp-card ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 13px;
+    }
+
+    .exp-card li {
+      margin-bottom: 3px;
+    }
+
+    .exp-link {
+      margin-top: 4px;
+      font-size: 12px;
+    }
+
+    /* ====== Footer ====== */
+    footer {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(226, 232, 240, 0.9);
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ====== Responsive ====== */
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .exp-section {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .site-shell {
+        padding: 0 14px 30px;
+      }
+      .hero-card,
+      .stat-card {
+        border-radius: 20px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>👋 Hi, I’m Carol</h1>
-  <p>
-    我是高佳煒，大學就讀於嘉義大學經濟系，碩士畢業於輔仁大學金融與國際企業學系。具財金與資料分析背景，熟悉 Python、AI 工具與研究方法。曾參與塭仔圳輔大醫院財務分析計畫、金融機器學習營、TEJ 交易策略競賽、期貨選擇權期刊投稿與金融科技競賽，目前正參與經濟部 AI 新秀培訓專班，強化 AI 與研究整合應用。於台經院社創平台負責資料比對自動化與內容經營，並協助學生進行計量經濟學學習輔導，培養清晰表達與教學能力。期望結合財金理論、AI 技術與研究精神，投入研究助理或教育訓練相關工作，持續推動學術與AI的連結。
-  </p>
+  <!-- ====== NAVBAR ====== -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-avatar">C</div>
+        <span>Carol Kao</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">關於我</a>
+        <a href="#skills">專長與證照</a>
+        <a href="#experience">實務與活動</a>
+        <a href="#contact">連結</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- ✅ GitHub 統計區塊（已改成 carolkao-fin） -->
-  <div class="center">
-    <a href="https://github.com/carolkao-fin">
-      <img height="150"
-           src="https://github-readme-stats.vercel.app/api?username=carolkao-fin&show_icons=true&count_private=true"
-           alt="GitHub Stats">
-    </a>
-    <a href="https://github.com/anuraghazra/github-readme-stats">
-      <img height="150"
-           src="https://github-readme-stats.vercel.app/api/top-langs/?username=carolkao-fin&layout=compact"
-           alt="Top Languages">
-    </a>
-    <br>
-    <img width="175"
-         src="https://komarev.com/ghpvc/?username=carolkao-fin&color=DE002D"
-         alt="Profile views">
+  <div class="site-shell">
+    <main>
+      <!-- ====== HERO / ABOUT ====== -->
+      <section id="about" class="section">
+        <div class="hero">
+          <!-- 左側：個人介紹 -->
+          <article class="hero-card">
+            <header>
+              <h1 class="hero-title">👋 Hi, I’m Carol</h1>
+              <p class="hero-tagline">
+                財金 × 資料分析 × AI 工具整合｜研究助理 / 教學與培訓方向
+              </p>
+              <div class="hero-pill-row">
+                <span class="pill accent">金融與國際企業碩士（輔仁大學）</span>
+                <span class="pill">經濟學學士（嘉義大學）</span>
+                <span class="pill">Python / SAS / Stata / TSP 5.1</span>
+                <span class="pill">經濟部 AI 新秀培訓</span>
+              </div>
+            </header>
+            <div class="hero-body">
+              <p>
+                我是高佳煒，大學就讀於嘉義大學經濟系，碩士畢業於輔仁大學金融與國際企業學系。具財金與資料分析背景，熟悉 Python、AI 工具與研究方法。
+              </p>
+              <p>
+                曾參與塭仔圳輔大醫院財務分析計畫、金融機器學習營、TEJ 交易策略競賽、期貨選擇權期刊投稿與金融科技競賽，目前正參與經濟部 AI 新秀培訓專班，強化 AI 與研究整合應用。
+              </p>
+              <p>
+                於台經院社創平台負責資料比對自動化與內容經營，並協助學生進行計量經濟學學習輔導，培養清晰表達與教學能力。期望結合財金理論、AI 技術與研究精神，投入研究助理或教育訓練相關工作，持續推動學術與 AI 的連結。
+              </p>
+            </div>
+            <div class="hero-meta">
+              <span><span class="hero-meta-dot"></span> 開放研究助理 / 分析與教學相關職缺</span>
+            </div>
+          </article>
+
+          <!-- 右側：GitHub / 簡易聯絡 -->
+          <div class="hero-right">
+            <div class="stat-card">
+              <div class="stat-card-title">GitHub Activity</div>
+              <a href="https://github.com/carolkao-fin" target="_blank" rel="noopener noreferrer">
+                <img
+                  height="150"
+                  src="https://github-readme-stats.vercel.app/api?username=carolkao-fin&show_icons=true&count_private=true"
+                  alt="GitHub Stats for carolkao-fin"
+                />
+              </a>
+              <a href="https://github.com/anuraghazra/github-readme-stats" target="_blank" rel="noopener noreferrer">
+                <img
+                  height="150"
+                  src="https://github-readme-stats.vercel.app/api/top-langs/?username=carolkao-fin&layout=compact"
+                  alt="Top Languages for carolkao-fin"
+                />
+              </a>
+              <div class="stat-badge-row">
+                <img
+                  src="https://komarev.com/ghpvc/?username=carolkao-fin&color=DE002D"
+                  alt="Profile views counter"
+                />
+              </div>
+              <div class="stat-card-footer">
+                以 GitHub 紀錄程式練習、金融資料分析與 AI 專案。
+              </div>
+            </div>
+
+            <div class="contact-card" id="contact">
+              <div>
+                <strong>聯絡與連結</strong><br />
+                <span style="font-size:13px; color:var(--muted);">
+                  歡迎透過下列平台了解更多作品與經歷。
+                </span>
+              </div>
+              <div class="contact-chip-row">
+                <span class="contact-chip">
+                  🔗 GitHub：
+                  <a href="https://github.com/carolkao-fin" target="_blank" rel="noopener noreferrer">
+                    github.com/carolkao-fin
+                  </a>
+                </span>
+                <span class="contact-chip">
+                  🌐 社創平台文章：
+                  <a href="https://startup.sme.gov.tw/sitaiwan/" target="_blank" rel="noopener noreferrer">
+                    社創平台
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== SKILLS & CERTS ====== -->
+      <section id="skills" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Skills & Certification</h2>
+          <span class="section-subtitle">專業工具與證照</span>
+        </div>
+
+        <div class="grid-2">
+          <!-- 資料與工具 -->
+          <article class="card">
+            <h3>Data Analysis & Tools</h3>
+            <small>金融資料與計量工具操作</small>
+            <div class="tag-list">
+              <span class="tag">Stata</span>
+              <span class="tag">SAS</span>
+              <span class="tag">Python</span>
+              <span class="tag">TEJ</span>
+              <span class="tag">MATLAB</span>
+              <span class="tag">Frontier 4.1</span>
+              <span class="tag">TSP 5.1</span>
+              <span class="tag">EViews</span>
+            </div>
+
+            <h3 style="margin-top:14px;">Document & Collaboration</h3>
+            <small>文件編輯與視覺化呈現</small>
+            <div class="tag-list">
+              <span class="tag">Excel</span>
+              <span class="tag">Word</span>
+              <span class="tag">Canva</span>
+              <span class="tag">GitMind</span>
+            </div>
+          </article>
+
+          <!-- 證照 -->
+          <article class="card">
+            <h3>Certification</h3>
+            <small>金融專業證照與榮譽</small>
+            <ul class="cert-list">
+              <li>信託業業務人員</li>
+              <li>人身保險業務員</li>
+              <li>投信投顧相關法規</li>
+              <li>銀行內部控制與內部稽核</li>
+              <li>證券商業務員</li>
+              <li>理財規劃人員</li>
+              <li>衍伸性商品銷售人員</li>
+              <li>初階外匯人員</li>
+              <li>初階授信人員</li>
+              <li>金融市場常識與職業道德（有效日期：2030/03/31）</li>
+              <li>國際貿易大會考合格</li>
+              <li>多益成績 720 分（考試日期：2024/12/29）</li>
+              <li>獲選為 113 年度 BGS 終身榮譽會員（碩士）</li>
+              <li>獲選為 114 年度斐陶斐學會榮譽會員（碩士）</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ====== EXPERIENCE ====== -->
+      <section id="experience" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Experience</h2>
+          <span class="section-subtitle">專題、實習、競賽與工作經歷</span>
+        </div>
+
+        <!-- 專題與金融實務 -->
+        <div class="exp-section">
+          <div>
+            <div class="exp-section-title">Finance & Research</div>
+            <div class="exp-section-desc">
+              大學專題、投資案分析與金融實務專案。
+            </div>
+          </div>
+          <div class="exp-list">
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">大學畢業專題</div>
+                <div class="exp-org">嘉義大學經濟系</div>
+              </div>
+              <div class="exp-title">網路通訊產業之產業概況與財報分析</div>
+              <ul>
+                <li>透過閱讀財報並分析，了解企業財務上的優勢與劣勢。</li>
+                <li>了解各個比率在財務的相關性與影響。</li>
+                <li>將財務數據與現實狀況結合，做整體的分析。</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">塭仔圳輔大醫院投資案分析</div>
+                <div class="exp-org">投資案財務預測與評估</div>
+              </div>
+              <div class="exp-title">投資案的財務預測與投資評估</div>
+              <ul>
+                <li>透過閱讀醫院財報，了解醫療產業基本的財務結構。</li>
+                <li>學習如何建立模型，預測未來投資案的現金流量。</li>
+                <li>在訪談過程與執行團隊溝通，並做出合理性分析。</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">若水數位評價實習生</div>
+                <div class="exp-org">無形資產評價與併購案分析</div>
+              </div>
+              <div class="exp-title">無形資產的評價與併購案分析</div>
+              <ul>
+                <li>透過實務操作，了解如何評價企業價值與專利權價值。</li>
+                <li>利用案例分析探索綠能產業及其商業模式。</li>
+                <li>瞭解併購案並於總結報告提出相關建議。</li>
+                <li>透過分組合作，練習與同儕與上司溝通與表達。</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <!-- 資料科學 / FinTech / 研討會 -->
+        <div class="exp-section">
+          <div>
+            <div class="exp-section-title">Data & FinTech</div>
+            <div class="exp-section-desc">
+              機器學習營、交易策略競賽與期貨期權相關研究。
+            </div>
+          </div>
+          <div class="exp-list">
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">金融機器學習實作營</div>
+                <div class="exp-org">借貸績效第二名</div>
+              </div>
+              <div class="exp-title">機器學習於借貸風險評估之應用</div>
+              <ul>
+                <li>透過實務操作（Python），了解機器學習的用意與內涵。</li>
+                <li>學習多種機器學習方法並應用於程式設計。</li>
+                <li>透過不斷調整參數，降低錯誤放貸率。</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">金融程式應用課程</div>
+                <div class="exp-org">TEJ 交易策略競賽入選</div>
+              </div>
+              <div class="exp-title">Python 交易策略構思與分析</div>
+              <ul>
+                <li>透過文獻研究，了解交易策略的有效性與應用。</li>
+                <li>將想法與程式碼結合，嘗試應用於實務。</li>
+                <li>與同儕交流想法，整合為最終成果。</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">期貨與選擇權期刊投稿入選</div>
+                <div class="exp-org">2024 NEW FUTURES 研討會</div>
+              </div>
+              <div class="exp-title">金融業專利權之應用與效益分析</div>
+              <ul>
+                <li>閱讀相關文獻，了解國內專利權發展近況與金融業應用。</li>
+                <li>蒐集與整理資料，利用數據佐證研究論點。</li>
+                <li>與教授討論研究架構，將觀點融入論述。</li>
+                <li>以共同作者身分參與研討會，協助簡報製作與會務。</li>
+                <li>透過主題論壇，了解金融科技、AI、ESG 等議題發展。</li>
+              </ul>
+              <div class="exp-link">
+                相關資訊：
+                <a href="http://ms.fib.fju.edu.tw/index.php?action=ix-detail&cid=18&id=288" target="_blank" rel="noopener noreferrer">
+                  點擊連結
+                </a>
+              </div>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">金融科技講座課程提案競賽</div>
+                <div class="exp-org">FinTech × 防治金融詐騙</div>
+              </div>
+              <div class="exp-title">運用 FinTech 防治金融詐騙</div>
+              <ul>
+                <li>分析防詐財損金額與件數，掌握現況。</li>
+                <li>發現國內防詐痛點，參考國外案例提出改善建議。</li>
+                <li>整合組內意見並繪製流程圖，清楚呈現提案架構。</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <!-- 公益 / 社會創新與活動 -->
+        <div class="exp-section">
+          <div>
+            <div class="exp-section-title">Social Impact & Events</div>
+            <div class="exp-section-desc">
+              公益競賽、社會創新活動與大型研討會工作人員。
+            </div>
+          </div>
+          <div class="exp-list">
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">2023 挺好 Campus 社群商務競賽</div>
+                <div class="exp-org">公益行銷獎第一名／公益募款獎佳作</div>
+              </div>
+              <div class="exp-title">社群經營與公益募款實務</div>
+              <ul>
+                <li>透過街頭宣傳與募款，學習與民眾有效溝通。</li>
+                <li>與公益機構互動，學習以電子郵件進行專業聯繫。</li>
+                <li>製作成果報告與日常貼文，訓練資訊視覺化能力。</li>
+                <li>經營「心，與你童在」社群（IG / Facebook），練習文案撰寫與 Canva 圖像設計。</li>
+              </ul>
+              <div class="exp-link">
+                Facebook 平台：
+                <a href="https://reurl.cc/OMagLy" target="_blank" rel="noopener noreferrer">
+                  點擊連結
+                </a>
+              </div>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">台灣經濟研究院社創平台小編</div>
+                <div class="exp-org">內容上架與資料比對自動化</div>
+              </div>
+              <div class="exp-title">社創平台內容經營與流程規劃</div>
+              <ul>
+                <li>搜尋與永續或創業相關文章，上架至社創平台。</li>
+                <li>協助建立文章比對 ERP 流程，並規劃未來發展方向。</li>
+                <li>經營「IT 幫幫忙」LINE@ 平台，規劃文章排程。</li>
+              </ul>
+              <div class="exp-link">
+                社創平台：
+                <a href="https://startup.sme.gov.tw/sitaiwan/" target="_blank" rel="noopener noreferrer">
+                  點擊連結
+                </a>
+              </div>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">2024 TiC100 社會創新實踐家工作人員</div>
+                <div class="exp-org">計分與活動支援</div>
+              </div>
+              <ul>
+                <li>了解評分標準並製作 Excel 計分表。</li>
+                <li>隨時觀察現場狀況，提供即時協助。</li>
+                <li>參與決選過程，整理資訊呈現予評審。</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">2024 台灣社會企業學術研討會工作人員</div>
+                <div class="exp-org">活動支援與計分</div>
+              </div>
+              <ul>
+                <li>依評審意見調整計分表，整理最終決議結果。</li>
+                <li>擔任接待人員，協助報到與引導。</li>
+                <li>即時應對突發狀況。</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">2024 SEIE TALK 社創年會工作人員</div>
+                <div class="exp-org">計分與場內支援</div>
+              </div>
+              <ul>
+                <li>協助場內計時並提醒講者。</li>
+                <li>擔任頒獎人員，協助遞交獎牌與感謝狀。</li>
+                <li>即時回應現場狀況。</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">2025 明緯永續創新實踐家工作人員</div>
+                <div class="exp-org">計分與設備維護</div>
+              </div>
+              <ul>
+                <li>依評審需求完成評分表製作。</li>
+                <li>處理會場麥克風問題，確保活動順利進行。</li>
+                <li>整理最終決選結果予評審。</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <!-- 教學 / 助教 -->
+        <div class="exp-section">
+          <div>
+            <div class="exp-section-title">Teaching & TA</div>
+            <div class="exp-section-desc">
+              大學與研究所多門課程之教學助理與計量輔導。
+            </div>
+          </div>
+          <div class="exp-list">
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">天主教輔仁大學計量輔導老師</div>
+                <div class="exp-org">計量經濟學輔導</div>
+              </div>
+              <ul>
+                <li>輔導碩士班學生了解計量經濟學核心概念（假設檢定、模型推導）。</li>
+                <li>將複雜理論轉化為易懂邏輯，協助同學掌握背後意涵。</li>
+                <li>協助實作 TSP 5.1 操作並解釋相關邏輯。</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">整合管理課程與其他科目之教學助理</div>
+                <div class="exp-org">課程與活動行政支援</div>
+              </div>
+              <ul>
+                <li>擔任秘書角色，與工讀生溝通並提供協助。</li>
+                <li>製作桌牌、成績表與計分表等課程所需文件。</li>
+                <li>完整傳達交辦任務並落實執行。</li>
+                <li>解答同學疑問並作為與老師溝通的橋樑。</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">金融與投資概論、國際貿易實務之教學助理</div>
+                <div class="exp-org">證照報名與課堂協助</div>
+              </div>
+              <ul>
+                <li>協助證照報名，教導同學使用報名系統。</li>
+                <li>幫忙課堂點名並提供講師協助。</li>
+                <li>協助同學釐清課程問題，完成秘書與老師交辦事項。</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">企業倫理課程教學助理</div>
+                <div class="exp-org">活動與新聞稿撰寫</div>
+              </div>
+              <ul>
+                <li>擔任活動工作人員，協助流程進行。</li>
+                <li>紀錄講師內容並撰寫新聞稿。</li>
+                <li>維護課程系統與公告相關注意事項。</li>
+              </ul>
+              <div class="exp-link">
+                新聞稿平台：
+                <a href="https://www.facebook.com/share/p/19HFVRxhh9/" target="_blank" rel="noopener noreferrer">
+                  點擊連結
+                </a>
+              </div>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-role">輔大金融與國際企業學系活動與試務工作人員</div>
+                <div class="exp-org">迎新、面試與專題發表</div>
+              </div>
+              <ul>
+                <li>協助碩士班迎新活動籌劃，整理會議結論並撰寫文案與拍攝影片。</li>
+                <li>擔任系所面試試務人員，負責計時與引導考生。</li>
+                <li>協助專題活動場地布置、設備調整與流程掌控，擔任司儀與現場協調角色。</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== FOOTER ====== -->
+      <footer>
+        <div>© <span id="year"></span> Carol Kao. Built with HTML &amp; CSS on GitHub Pages.</div>
+      </footer>
+    </main>
   </div>
 
-  <h2>My Certification</h2>
-  <ul>
-    <li>信託業業務人員</li>
-    <li>人身保險業務員</li>
-    <li>投信投顧相關法規</li>
-    <li>銀行內部控制與內部稽核</li>
-    <li>證券商業務員</li>
-    <li>理財規劃人員</li>
-    <li>衍伸性商品銷售人員</li>
-    <li>初階外匯人員</li>
-    <li>初階授信人員</li>
-    <li>金融市場常識與職業道德(有效日期:2030/03/31)</li>
-    <li>國際貿易大會考合格</li>
-    <li>多益成績720分(考試日期:2024/12/29)</li>
-    <li>獲選為113年度BGS終身榮譽會員(碩士)</li>
-    <li>獲選為114年度斐陶斐學會榮譽會員(碩士)</li>
-  </ul>
-
-  <h2>Data Analysis</h2>
-  <ul><li>stata、TEJ、MATLAB、SAS、Frontier4.1、python、TSP version5.1、eviews</li></ul>
-
-  <h2>Document Processing</h2>
-  <ul><li>excel、word、canva、GitMind</li></ul>
-
-  <h2>Relevant Professional Experience</h2>
-
-  <h3>大學畢業專題</h3>
-  <h4>網路通訊產業之產業概況與財報分析</h4>
-  <ul>
-    <li>透過閱讀財報並分析，了解企業財務上的優勢與劣勢</li>
-    <li>了解各個比率在財務的相關性與影響</li>
-    <li>將財務數據與現實狀況結合，做整體的分析</li>
-  </ul>
-      
-  <h3>塭仔圳輔大醫院投資案分析</h3>
-  <h4>投資案的財務預測與投資評估</h4>
-  <ul>
-    <li>透過閱讀醫院財報，了解醫療產業基本的財務結構</li>
-    <li>學習如何建立模型，預測未來投資案的現金流量</li>
-    <li>在訪談的過程與執行團隊溝通，並做出合理性分析</li>
-  </ul>
-
-  <h3>金融機器學習實作營</h3>
-  <h4>借貸績效第二名</h4>
-  <ul>
-    <li>透過營隊與實務操作(python)，了解機器學習的用意與內涵</li>
-    <li>學到機器學習的方法，並將其應用於程式設計上</li>
-    <li>透過不斷的嘗試，找出最適合評估借貸的參數，以降低錯誤放貸率</li>
-  </ul>
-
-  <h3>2023挺好campus社群商務競賽</h3>
-  <h4>公益行銷獎第一名/公益募款獎佳作</h4>
-  <ul>
-    <li>透過街頭宣傳與募款，學習如何與民眾溝通</li>
-    <li>透過與公益機構互動，學習如何與他人用信件聯繫</li>
-    <li>透過成果報告書與日常貼文的製作，瞭解如何視覺化呈現資訊</li>
-    <li>透過經營社交媒體-心，與你童在(包含instagram與facebook平台)，了解如何撰寫文案，並得知如何利用canva製作圖片</li>
-  </ul>
-  <p>facebook平台網址：<a href="https://reurl.cc/OMagLy">點擊連結</a></p>
-
-  <h3>若水數位評價實習生</h3>
-  <h4>無形資產的評價與併購案分析</h4>
-  <ul>
-    <li>透過實務操作，了解如何評價企業價值與專利權價值</li>
-    <li>利用案例分析深入探索綠能產業，以及該產業的商業模式</li>
-    <li>瞭解何謂併購案，並於總結報告提出併購相關建議</li>
-    <li>透過分組合作，學習如何與同儕與上司溝通，表達對事情的看法</li>
-  </ul>
-
-  <h3>參與期貨與選擇權期刊投稿入選</h3>
-  <h4>金融業專利權之應用與效益分析</h4>
-  <ul>
-    <li>經由文獻的閱讀，了解國內專利權發展的近況與對金融業的應用</li>
-    <li>學習如何蒐集與整理資料，並利用數據佐證欲表達的論點</li>
-    <li>透過與教授討論，闡述對此議題的看法，將觀點融入論述當中</li>
-    <li>以共同作者身分參與「2024 NEW FUTURES期貨學術交流與實務交流研討會」，協助簡報製作與其他事項</li>
-    <li>透過主題論壇與論文發表，了解金融科技、人工智慧、ESG、期貨市場發展與經濟相關議題</li>
-  </ul>
-  <p>相關資訊：<a href="http://ms.fib.fju.edu.tw/index.php?action=ix-detail&cid=18&id=288">點擊連結</a></p>
-
-  <h3>金融程式應用課程-TEJ交易策略競賽入選</h3>
-  <h4>Python交易策略構思與分析</h4>
-  <ul>
-    <li>透過文獻研究，了解交易策略的有效性與應用</li>
-    <li>將想法與程式碼做結合，嘗試應用於實務中</li>
-    <li>與同儕討論並交流想法，整合為最終的成果</li>
-  </ul>
-
-  <h3>金融科技講座課程-提案競賽</h3>
-  <h4>運用fintech防治金融詐騙</h4>
-  <ul>
-    <li>透過分析防詐財損金額、件數了解現況，並提出有利於打擊詐騙的想法</li>
-    <li>發現國內防詐的痛點，並參考國外類似案例，提出改善的建議</li>
-    <li>整合組內意見，並繪製流程圖，方便組員、業師、教授了解提案的具體想法</li>
-  </ul>
-
-  <h2>Other Relevant Experience</h2>
-
-  <h3>2024 TiC100 社會創新實踐家工作人員</h3>
-  <h4>協助計分作業與協助活動進行</h4>
-  <ul>
-    <li>了解評分標準，完成excel計分表的製作</li>
-    <li>隨時觀察現場狀況，對此做出適當的因應與回饋</li>
-    <li>參與決選過程，將資訊整理並呈現予評審</li>
-  </ul>
-     
-  <h3>2024 台灣社會企業學術研討會工作人員</h3>
-  <h4>提供活動支援並協助計分</h4>
-  <ul>
-    <li>因應評審意見修正計分表，並整理最終決議結果</li>
-    <li>擔任接待人員，協助報到引導各項事宜</li>
-    <li>針對突發狀況隨時應對處理</li>
-  </ul>
-
-  <h3>2024 SEIE TALK 社創年會工作人員</h3>
-  <h4>協助計分作業與協助活動進行</h4>
-  <ul>
-    <li>協助場內計時，適時提醒講者</li>
-    <li>擔任頒獎人員，協助遞交獎牌與感謝狀</li>
-    <li>即時回應現場的狀況</li>
-  </ul>
-
-  <h3>2025 明緯永續創新實踐家工作人員</h3>
-  <h4>協助計分作業與設備維護</h4>
-  <ul>
-    <li>根據評審要求，完成評分表的製作</li>
-    <li>協助處理會場麥克風問題，讓活動順利進行</li>
-    <li>整理最終決選結果予評審</li>
-  </ul>
-
-  <h3>輔大金融與國際企業學系前三章發表工作人員</h3>
-  <h4>協助計分作業與協助活動進行</h4>
-  <ul>
-    <li>協助計時作業並提醒講者</li>
-    <li>完成秘書交代的事項</li>
-    <li>即時處理現場發生的狀況</li>
-  </ul>
-
-  <h3>輔大金企系碩士班迎新活動工作人員</h3>
-  <h4>協助活動籌劃與溝通的橋樑</h4>
-  <ul>
-    <li>與同儕討論活動規劃，將結果整理並做紀錄</li>
-    <li>協助撰寫文案，與影片拍攝相關事宜</li>
-    <li>闡述最終討論結果，並與教授溝通說明</li>
-  </ul>
-
-  <h3>輔大金融與國際企業學系面試試務人員</h3>
-  <h4>協助活動進行與計時</h4>
-  <ul>
-    <li>擔任計時人員，並帶領考生進入應試試場</li>
-    <li>觀察試場狀況，即時回饋予面試官</li>
-    <li>適時協助秘書處理相關事項</li>
-  </ul>
-
-  <h3>輔大金融與國際企業學系專題工作人員</h3>
-  <h4>協助場地布置與流程順利</h4>
-  <ul>
-    <li>擔任司儀，維持活動的整體流程</li>
-    <li>協助架設、調整設備，並處理試場狀況</li>
-    <li>解答發表同學疑問，並傳達相關注意事項</li>
-  </ul>
-
-  <h3>整合管理課程與其他科目之教學助理</h3>
-  <h4>協助各項事務並完成交辦事項</h4>
-  <ul>
-    <li>擔任秘書的角色，與工讀生溝通並適時提供協助</li>
-    <li>幫忙桌牌、成績表與計分表的製作，與其他課程所需資料</li>
-    <li>完整傳達秘書交辦的任務，並確實執行</li>
-    <li>解答班上同學的疑問，並成為與老師溝通的橋樑</li>
-  </ul>
-
-  <h3>金融與投資概論、國際貿易實務之教學助理</h3>
-  <h4>協助證照報名並完成交辦事項</h4>
-  <ul>
-    <li>協助證照報名，教導同學如何使用系統</li>
-    <li>幫忙課堂點名，並適時提供講師協助</li>
-    <li>替同學解惑，並完成秘書與老師的交辦事項</li>
-  </ul>
-
-  <h3>企業倫理課程之教學助理</h3>
-  <h4>協助各項事務並完成交辦事項</h4>
-  <ul>
-    <li>擔任工作人員，協助活動的進行</li>
-    <li>紀錄講師講述的內容，並撰寫新聞稿</li>
-    <li>維持學校課程系統，宣布相關注意事項</li>
-  </ul>
-  <p>新聞稿平台網址：<a href="https://www.facebook.com/share/p/19HFVRxhh9/">點擊連結</a></p>
-
-  <h3>台灣經濟研究院社創平台小編</h3>
-  <h4>協助上架活動、文章並完成交辦事項</h4>
-  <ul>
-    <li>搜尋與永續或創業相關之文章，上架至社創平台</li>
-    <li>協助建立文章比對ERP流程，並規劃未來發展方向</li>
-    <li>經營IT幫幫忙 line@ 平台，規劃文章排程</li>
-  </ul>
-  <p>社創平台網址：<a href="https://startup.sme.gov.tw/sitaiwan/">點擊連結</a></p>
-
-  <h3>天主教輔仁大學計量輔導老師</h3>
-  <ul>
-    <li>輔導碩士班學生了解計量經濟學的核心概念(假設檢定、模型推導)</li>
-    <li>將複雜的理論轉化為容易理解的邏輯，讓同學了解背後的意涵</li>
-    <li>協助同學實作TSP5.1的操作，並解釋相關邏輯</li>
-  </ul>
-
+  <script>
+    // 動態更新年份
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
