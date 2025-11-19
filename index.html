@@ -112,11 +112,11 @@
     }
 
     .section {
-      margin-top: 24px;
+      margin-top: 32px;
     }
 
     .section-header {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       display: flex;
       align-items: baseline;
       gap: 8px;
@@ -384,11 +384,16 @@
 
     /* ====== Experience ====== */
     .exp-section {
-      margin-top: 8px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 2.9fr);
-      gap: 18px;
-      align-items: flex-start;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .exp-section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
     .exp-section-title {
@@ -403,16 +408,17 @@
     }
 
     .exp-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
     }
 
     .exp-card {
       background: var(--card-bg);
       border-radius: var(--radius-sm);
-      padding: 10px 12px;
+      padding: 12px 14px;
       border: 1px solid var(--border);
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
     }
 
     .exp-card-header {
@@ -445,6 +451,7 @@
       margin: 0;
       padding-left: 18px;
       font-size: 13px;
+      line-height: 1.6;
     }
 
     .exp-card li {
@@ -458,7 +465,7 @@
 
     /* ====== Footer ====== */
     footer {
-      margin-top: 28px;
+      margin-top: 32px;
       padding-top: 16px;
       border-top: 1px solid rgba(226, 232, 240, 0.9);
       font-size: 12px;
@@ -467,11 +474,14 @@
     }
 
     /* ====== Responsive ====== */
+    @media (min-width: 1024px) {
+      .exp-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 840px) {
       .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .exp-section {
         grid-template-columns: minmax(0, 1fr);
       }
       .grid-2 {
@@ -511,7 +521,6 @@
         <a href="#about">關於我</a>
         <a href="#skills">專長與證照</a>
         <a href="#experience">實務與活動</a>
-        <a href="#contact">連結</a>
       </nav>
     </div>
   </header>
@@ -587,7 +596,7 @@
               </div>
             </div>
 
-            <div class="contact-card" id="contact">
+            <div class="contact-card">
               <div>
                 <strong>聯絡與連結</strong><br />
                 <span style="font-size:13px; color:var(--muted);">
@@ -679,7 +688,7 @@
 
         <!-- 專題與金融實務 -->
         <div class="exp-section">
-          <div>
+          <div class="exp-section-header">
             <div class="exp-section-title">Finance & Research</div>
             <div class="exp-section-desc">
               大學專題、投資案分析與金融實務專案。
@@ -730,7 +739,7 @@
 
         <!-- 資料科學 / FinTech / 研討會 -->
         <div class="exp-section">
-          <div>
+          <div class="exp-section-header">
             <div class="exp-section-title">Data & FinTech</div>
             <div class="exp-section-desc">
               機器學習營、交易策略競賽與期貨期權相關研究。
@@ -801,7 +810,7 @@
 
         <!-- 公益 / 社會創新與活動 -->
         <div class="exp-section">
-          <div>
+          <div class="exp-section-header">
             <div class="exp-section-title">Social Impact & Events</div>
             <div class="exp-section-desc">
               公益競賽、社會創新活動與大型研討會工作人員。
@@ -899,7 +908,7 @@
 
         <!-- 教學 / 助教 -->
         <div class="exp-section">
-          <div>
+          <div class="exp-section-header">
             <div class="exp-section-title">Teaching & TA</div>
             <div class="exp-section-desc">
               大學與研究所多門課程之教學助理與計量輔導。
