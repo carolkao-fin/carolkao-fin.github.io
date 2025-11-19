@@ -155,6 +155,23 @@
       gap: 14px;
     }
 
+    .hero-header-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .hero-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid #ffffff;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.3);
+      flex-shrink: 0;
+    }
+
     .hero-title {
       font-size: 28px;
       margin: 0;
@@ -507,15 +524,22 @@
           <!-- 左側：個人介紹 -->
           <article class="hero-card">
             <header>
-              <h1 class="hero-title">👋 Hi, I’m Carol</h1>
-              <p class="hero-tagline">
-                財金 × 資料分析 × AI 工具整合｜研究助理 / 教學與培訓方向
-              </p>
-              <div class="hero-pill-row">
-                <span class="pill accent">金融與國際企業碩士（輔仁大學）</span>
-                <span class="pill">經濟學學士（嘉義大學）</span>
-                <span class="pill">Python / SAS / Stata / TSP 5.1</span>
-                <span class="pill">經濟部 AI 新秀培訓</span>
+              <div class="hero-header-row">
+                <!-- 把 profile.jpg 換成你實際上傳的檔名 -->
+                <img src="profile.jpg" alt="Photo of Carol Kao" class="hero-photo">
+
+                <div>
+                  <h1 class="hero-title">👋 Hi, I’m Carol</h1>
+                  <p class="hero-tagline">
+                    財金 × 資料分析 × AI 工具整合｜研究助理 / 教學與培訓方向
+                  </p>
+                  <div class="hero-pill-row">
+                    <span class="pill accent">金融與國際企業碩士（輔仁大學）</span>
+                    <span class="pill">經濟學學士（嘉義大學）</span>
+                    <span class="pill">Python / SAS / Stata / TSP 5.1</span>
+                    <span class="pill">經濟部 AI 新秀培訓</span>
+                  </div>
+                </div>
               </div>
             </header>
             <div class="hero-body">
