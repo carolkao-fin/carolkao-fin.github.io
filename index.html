@@ -8,11 +8,11 @@
     :root {
       --bg: #f4f6fb;
       --card-bg: #ffffff;
-      --primary: #1f2937;   /* 深灰藍：標題、重點字 */
-      --accent: #2563eb;    /* 專業藍：連結、強調 */
-      --text: #111827;      /* 內文深灰 */
-      --muted: #6b7280;     /* 淺灰文字 */
-      --border: #e2e8f0;    /* 淺灰邊框 */
+      --primary: #1f2937;
+      --accent: #2563eb;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e2e8f0;
       --shadow: 0 10px 24px rgba(15, 23, 42, 0.09);
       --radius-lg: 18px;
       --radius-sm: 10px;
@@ -223,7 +223,6 @@
     .hero-body p {
       margin: 0 0 10px;
     }
-
     .hero-body p:last-child {
       margin-bottom: 0;
     }
@@ -233,14 +232,12 @@
       color: var(--muted);
       margin-top: 4px;
     }
-
     .hero-meta span {
       display: inline-flex;
       align-items: center;
       gap: 4px;
       margin-right: 12px;
     }
-
     .hero-meta-dot {
       width: 6px;
       height: 6px;
@@ -373,13 +370,11 @@
       overflow-y: auto;
       font-size: 15px;
     }
-
     .cert-list li {
       margin-bottom: 5px;
       padding-left: 18px;
       position: relative;
     }
-
     .cert-list li::before {
       content: "•";
       position: absolute;
@@ -422,6 +417,42 @@
       background: #1d4ed8;
       transform: translateY(-1px);
       box-shadow: 0 10px 22px rgba(37, 99, 235, 0.45);
+    }
+
+    /* Article cover unified template (方案 C) */
+    .article-list {
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .article-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .article-cover {
+      width: 200px;
+      height: 125px;
+      border-radius: 16px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #e5edff, #dbeafe);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
+      flex-shrink: 0;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .article-text-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .article-text-link {
+      font-size: 14px;
+      margin-top: 4px;
     }
 
     /* Experience */
@@ -800,70 +831,91 @@
             </p>
           </article>
 
-          <!-- Article covers & links -->
+          <!-- Article covers (design only) -->
           <article class="card">
-            <h3>社創平台專欄文章封面設計｜IT 幫幫忙</h3>
-            <div class="project-meta">文章封面設計 ・ 視覺排版 ・ 社會創新 / AI 專欄</div>
+            <h3>社創平台專欄封面設計｜IT 幫幫忙</h3>
+            <div class="project-meta">封面設計 ・ 視覺排版 ・ 社會創新 / AI 主題</div>
             <p class="project-desc">
-              協助社創平台撰寫與上架多篇專欄文章，內容涵蓋 AI、資安、社會創新與實務應用。
-              並參與封面設計與視覺規劃，讓專欄在閱讀體驗與品牌辨識度上更一致。
+              參與社創平台「IT 幫幫忙」專欄之封面視覺設計，依照既有文章主題與平台風格，
+              規劃版面、配色與標題呈現，提升專欄在列表與社群曝光時的辨識度。
+              （文章內容由平台與合作夥伴撰寫，本人負責視覺設計部分。）
             </p>
             <div class="tag-list">
+              <span class="tag">封面設計</span>
               <span class="tag">社會創新</span>
               <span class="tag">AI 應用</span>
               <span class="tag">資安</span>
-              <span class="tag">封面設計</span>
-              <span class="tag">內容行銷</span>
+              <span class="tag">內容視覺化</span>
             </div>
 
-            <div style="margin-top:15px; display:flex; flex-direction:column; gap:20px;">
-              <div style="display:flex; gap:14px; align-items:flex-start;">
-                <img src="article-cover-1.jpg" alt="文章封面" style="width:120px; height:80px; object-fit:cover; border-radius:10px;">
+            <div class="article-list">
+              <div class="article-item">
+                <img src="article-cover-1.jpg" alt="善用 AI，打造更具影響力的社會創新專案 封面" class="article-cover">
                 <div>
-                  <strong>【IT幫幫忙專文】善用 AI，打造更具影響力的社會創新專案</strong><br>
-                  <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3680" target="_blank" rel="noopener noreferrer">
-                    前往閱讀 →
-                  </a>
+                  <div class="article-text-title">
+                    【IT幫幫忙專文】善用 AI，打造更具影響力的社會創新專案
+                  </div>
+                  <div class="article-text-link">
+                    <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3680" target="_blank" rel="noopener noreferrer">
+                      前往社創平台閱讀 →
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div style="display:flex; gap:14px; align-items:flex-start;">
-                <img src="article-cover-2.jpg" alt="文章封面" style="width:120px; height:80px; object-fit:cover; border-radius:10px;">
+              <div class="article-item">
+                <img src="article-cover-2.jpg" alt="實踐資安零信任的工具箱 封面" class="article-cover">
                 <div>
-                  <strong>【IT幫幫忙專文】實踐資安零信任的工具箱</strong><br>
-                  <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3614" target="_blank" rel="noopener noreferrer">
-                    前往閱讀 →
-                  </a>
+                  <div class="article-text-title">
+                    【IT幫幫忙專文】實踐資安零信任的工具箱
+                  </div>
+                  <div class="article-text-link">
+                    <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3614" target="_blank" rel="noopener noreferrer">
+                      前往社創平台閱讀 →
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div style="display:flex; gap:14px; align-items:flex-start;">
-                <img src="article-cover-3.jpg" alt="文章封面" style="width:120px; height:80px; object-fit:cover; border-radius:10px;">
+              <div class="article-item">
+                <img src="article-cover-3.jpg" alt="從理念到變革：AI 如何驅動社會進步 封面" class="article-cover">
                 <div>
-                  <strong>【IT幫幫忙專文】從理念到變革：AI 如何驅動社會進步</strong><br>
-                  <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3531" target="_blank" rel="noopener noreferrer">
-                    前往閱讀 →
-                  </a>
+                  <div class="article-text-title">
+                    【IT幫幫忙專文】從理念到變革：AI 如何驅動社會進步
+                  </div>
+                  <div class="article-text-link">
+                    <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3531" target="_blank" rel="noopener noreferrer">
+                      前往社創平台閱讀 →
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div style="display:flex; gap:14px; align-items:flex-start;">
-                <img src="article-cover-4.jpg" alt="文章封面" style="width:120px; height:80px; object-fit:cover; border-radius:10px;">
+              <div class="article-item">
+                <img src="article-cover-4.jpg" alt="ＡＩ應用規劃的資安議題 封面" class="article-cover">
                 <div>
-                  <strong>【IT幫幫忙專文】ＡＩ應用規劃的資安議題</strong><br>
-                  <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3455" target="_blank" rel="noopener noreferrer">
-                    前往閱讀 →
-                  </a>
+                  <div class="article-text-title">
+                    【IT幫幫忙專文】ＡＩ應用規劃的資安議題
+                  </div>
+                  <div class="article-text-link">
+                    <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3455" target="_blank" rel="noopener noreferrer">
+                      前往社創平台閱讀 →
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div style="display:flex; gap:14px; align-items:flex-start;">
-                <img src="article-cover-5.jpg" alt="文章封面" style="width:120px; height:80px; object-fit:cover; border-radius:10px;">
+              <div class="article-item">
+                <img src="article-cover-5.jpg" alt="AI為何是社會創新的最佳夥伴 封面" class="article-cover">
                 <div>
-                  <strong>【IT幫幫忙專文】AI為何是社會創新的最佳夥伴</strong><br>
-                  <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3408" target="_blank" rel="noopener noreferrer">
-                    前往閱讀 →
-                  </a>
+                  <div class="article-text-title">
+                    【IT幫幫忙專文】AI為何是社會創新的最佳夥伴
+                  </div>
+                  <div class="article-text-link">
+                    <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3408" target="_blank" rel="noopener noreferrer">
+                      前往社創平台閱讀 →
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1202,3 +1254,4 @@
   </script>
 </body>
 </html>
+
