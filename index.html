@@ -28,7 +28,7 @@
       background: radial-gradient(circle at top left, #e5edff 0, #f4f6fb 40%, #ffffff 100%);
       color: var(--text);
       line-height: 1.9;
-      font-size: 19px; /* 整體文字再放大一階 */
+      font-size: 19px;
     }
 
     a {
@@ -39,7 +39,6 @@
       text-decoration: underline;
     }
 
-    /* ====== Header / Nav ====== */
     .site-shell {
       max-width: 1080px;
       margin: 0 auto;
@@ -113,7 +112,6 @@
       transform: translateY(-1px);
     }
 
-    /* ====== Sections / Layout ====== */
     main {
       padding-top: 28px;
     }
@@ -142,7 +140,7 @@
       color: var(--muted);
     }
 
-    /* ====== Hero ====== */
+    /* Hero */
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.9fr);
@@ -326,7 +324,6 @@
       white-space: nowrap;
     }
 
-    /* ====== Skills / Certs / Grid ====== */
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -391,7 +388,7 @@
       color: #6b7280;
     }
 
-    /* ====== Portfolio ====== */
+    /* Portfolio */
     .project-meta {
       font-size: 14px;
       color: var(--muted);
@@ -427,7 +424,7 @@
       box-shadow: 0 10px 22px rgba(37, 99, 235, 0.45);
     }
 
-    /* ====== Experience ====== */
+    /* Experience */
     .exp-section {
       margin-top: 20px;
       display: flex;
@@ -509,7 +506,6 @@
       font-size: 14px;
     }
 
-    /* ====== Footer ====== */
     footer {
       margin-top: 40px;
       padding-top: 18px;
@@ -519,7 +515,6 @@
       text-align: center;
     }
 
-    /* ====== Responsive ====== */
     @media (min-width: 1024px) {
       .exp-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -556,7 +551,6 @@
   </style>
 </head>
 <body>
-  <!-- ====== NAVBAR ====== -->
   <header class="site-header">
     <div class="nav-inner">
       <div class="brand">
@@ -574,16 +568,13 @@
 
   <div class="site-shell">
     <main>
-      <!-- ====== HERO / ABOUT ====== -->
+      <!-- ABOUT -->
       <section id="about" class="section">
         <div class="hero">
-          <!-- 左側：個人介紹 -->
           <article class="hero-card">
             <header>
               <div class="hero-header-row">
-                <!-- 把 profile.jpg 換成你實際上傳的檔名 -->
                 <img src="profile.jpg" alt="Photo of Carol Kao" class="hero-photo">
-
                 <div>
                   <h1 class="hero-title">👋 Hi, I’m Carol</h1>
                   <p class="hero-tagline">
@@ -614,7 +605,6 @@
             </div>
           </article>
 
-          <!-- 右側：GitHub / 簡易聯絡 -->
           <div class="hero-right">
             <div class="stat-card">
               <div class="stat-card-title">GitHub Activity</div>
@@ -663,7 +653,6 @@
                     社創平台
                   </a>
                 </span>
-                <!-- Email 聯絡方式 -->
                 <span class="contact-chip">
                   ✉ Email：
                   <a href="mailto:carol.kao.fin@gmail.com">carol.kao.fin@gmail.com</a>
@@ -674,7 +663,7 @@
         </div>
       </section>
 
-      <!-- ====== SKILLS & CERTS ====== -->
+      <!-- SKILLS -->
       <section id="skills" class="section">
         <div class="section-header">
           <h2 class="section-title">Skills & Certification</h2>
@@ -682,7 +671,6 @@
         </div>
 
         <div class="grid-2">
-          <!-- 資料與工具 -->
           <article class="card">
             <h3>Data Analysis & Tools</h3>
             <small>金融資料與計量工具操作</small>
@@ -707,7 +695,6 @@
             </div>
           </article>
 
-          <!-- 證照 -->
           <article class="card">
             <h3>Certification</h3>
             <small>金融專業證照與榮譽</small>
@@ -727,8 +714,6 @@
               <li>獲選為 113 年度 BGS 終身榮譽會員（碩士）</li>
               <li>獲選為 114 年度斐陶斐學會榮譽會員（碩士）</li>
               <li>榮獲天主教輔仁大學碩士畢業生「品學兼優獎」</li>
-
-              <!-- NVIDIA 課程（已改為正式課名） -->
               <li>
                 NVIDIA 線上課程：Generative AI with Diffusion Models
                 （<a href="https://learn.nvidia.com/certificates?id=uig2zrewQauoZMJtDNyw1w#" target="_blank" rel="noopener noreferrer">查看證書</a>）
@@ -754,7 +739,7 @@
         </div>
       </section>
 
-      <!-- ====== PORTFOLIO ====== -->
+      <!-- PORTFOLIO -->
       <section id="portfolio" class="section">
         <div class="section-header">
           <h2 class="section-title">Portfolio</h2>
@@ -762,7 +747,7 @@
         </div>
 
         <div class="grid-2">
-          <!-- AitralyzeX 專案卡片 -->
+          <!-- AitralyzeX -->
           <article class="card">
             <h3>AitralyzeX｜AI 交易回測與策略解讀引擎</h3>
             <div class="project-meta">Web App ・ Python ・ Streamlit ・ GitHub Pages</div>
@@ -788,7 +773,7 @@
             </a>
           </article>
 
-          <!-- NBA Gradio 介面專案卡片 -->
+          <!-- NBA Gradio -->
           <article class="card">
             <h3>NBA Stats Analyzer｜Gradio 互動分析介面</h3>
             <div class="project-meta">Gradio ・ Python ・ Data Visualization</div>
@@ -814,17 +799,86 @@
               ※ 目前為本機端開發網址，僅在個人電腦執行時可使用。
             </p>
           </article>
+
+          <!-- Article covers & links -->
+          <article class="card">
+            <h3>社創平台專欄文章封面設計｜IT 幫幫忙</h3>
+            <div class="project-meta">文章封面設計 ・ 視覺排版 ・ 社會創新 / AI 專欄</div>
+            <p class="project-desc">
+              協助社創平台撰寫與上架多篇專欄文章，內容涵蓋 AI、資安、社會創新與實務應用。
+              並參與封面設計與視覺規劃，讓專欄在閱讀體驗與品牌辨識度上更一致。
+            </p>
+            <div class="tag-list">
+              <span class="tag">社會創新</span>
+              <span class="tag">AI 應用</span>
+              <span class="tag">資安</span>
+              <span class="tag">封面設計</span>
+              <span class="tag">內容行銷</span>
+            </div>
+
+            <div style="margin-top:15px; display:flex; flex-direction:column; gap:20px;">
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <img src="article-cover-1.jpg" alt="文章封面" style="width:120px; height:80px; object-fit:cover; border-radius:10px;">
+                <div>
+                  <strong>【IT幫幫忙專文】善用 AI，打造更具影響力的社會創新專案</strong><br>
+                  <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3680" target="_blank" rel="noopener noreferrer">
+                    前往閱讀 →
+                  </a>
+                </div>
+              </div>
+
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <img src="article-cover-2.jpg" alt="文章封面" style="width:120px; height:80px; object-fit:cover; border-radius:10px;">
+                <div>
+                  <strong>【IT幫幫忙專文】實踐資安零信任的工具箱</strong><br>
+                  <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3614" target="_blank" rel="noopener noreferrer">
+                    前往閱讀 →
+                  </a>
+                </div>
+              </div>
+
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <img src="article-cover-3.jpg" alt="文章封面" style="width:120px; height:80px; object-fit:cover; border-radius:10px;">
+                <div>
+                  <strong>【IT幫幫忙專文】從理念到變革：AI 如何驅動社會進步</strong><br>
+                  <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3531" target="_blank" rel="noopener noreferrer">
+                    前往閱讀 →
+                  </a>
+                </div>
+              </div>
+
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <img src="article-cover-4.jpg" alt="文章封面" style="width:120px; height:80px; object-fit:cover; border-radius:10px;">
+                <div>
+                  <strong>【IT幫幫忙專文】ＡＩ應用規劃的資安議題</strong><br>
+                  <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3455" target="_blank" rel="noopener noreferrer">
+                    前往閱讀 →
+                  </a>
+                </div>
+              </div>
+
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <img src="article-cover-5.jpg" alt="文章封面" style="width:120px; height:80px; object-fit:cover; border-radius:10px;">
+                <div>
+                  <strong>【IT幫幫忙專文】AI為何是社會創新的最佳夥伴</strong><br>
+                  <a href="https://startup.sme.gov.tw/sitaiwan/Home/citizensSay/view/3408" target="_blank" rel="noopener noreferrer">
+                    前往閱讀 →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
-      <!-- ====== EXPERIENCE ====== -->
+      <!-- EXPERIENCE -->
       <section id="experience" class="section">
         <div class="section-header">
           <h2 class="section-title">Experience</h2>
           <span class="section-subtitle">專題、實習、競賽與工作經歷</span>
         </div>
 
-        <!-- 專題與金融實務 -->
+        <!-- Finance & Research -->
         <div class="exp-section">
           <div class="exp-section-header">
             <div class="exp-section-title">Finance & Research</div>
@@ -875,7 +929,7 @@
           </div>
         </div>
 
-        <!-- 資料科學 / FinTech / 研討會 -->
+        <!-- Data & FinTech -->
         <div class="exp-section">
           <div class="exp-section-header">
             <div class="exp-section-title">Data & FinTech</div>
@@ -931,7 +985,6 @@
               </div>
             </article>
 
-            <!-- 生產力與效率研討會投稿入選 -->
             <article class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-role">生產力與效率研討會投稿入選</div>
@@ -961,7 +1014,7 @@
           </div>
         </div>
 
-        <!-- 公益 / 社會創新與活動＋工作 -->
+        <!-- Social Impact & Events -->
         <div class="exp-section">
           <div class="exp-section-header">
             <div class="exp-section-title">Social Impact & Events</div>
@@ -970,7 +1023,6 @@
             </div>
           </div>
           <div class="exp-list">
-            <!-- 1. 台經院社創平台小編：放在最前面 -->
             <article class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-role">台灣經濟研究院社創平台小編</div>
@@ -990,7 +1042,6 @@
               </div>
             </article>
 
-            <!-- 2. 2023 挺好 Campus -->
             <article class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-role">2023 挺好 Campus 社群商務競賽</div>
@@ -1011,7 +1062,6 @@
               </div>
             </article>
 
-            <!-- 3. 2024 TiC100 -->
             <article class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-role">2024 TiC100 社會創新實踐家工作人員</div>
@@ -1024,7 +1074,6 @@
               </ul>
             </article>
 
-            <!-- 4. 2024 台灣社會企業學術研討會 -->
             <article class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-role">2024 台灣社會企業學術研討會工作人員</div>
@@ -1037,7 +1086,6 @@
               </ul>
             </article>
 
-            <!-- 5. 2024 SEIE TALK -->
             <article class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-role">2024 SEIE TALK 社創年會工作人員</div>
@@ -1050,7 +1098,6 @@
               </ul>
             </article>
 
-            <!-- 6. 2025 明緯永續創新實踐家 -->
             <article class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-role">2025 明緯永續創新實踐家工作人員</div>
@@ -1063,7 +1110,6 @@
               </ul>
             </article>
 
-            <!-- 7. 輔大金融與國際企業學系活動與試務工作人員 -->
             <article class="exp-card">
               <div class="exp-card-header">
                 <div class="exp-role">輔大金融與國際企業學系活動與試務工作人員</div>
@@ -1078,7 +1124,7 @@
           </div>
         </div>
 
-        <!-- 教學 / 助教 -->
+        <!-- Teaching & TA -->
         <div class="exp-section">
           <div class="exp-section-header">
             <div class="exp-section-title">Teaching & TA</div>
@@ -1145,7 +1191,6 @@
         </div>
       </section>
 
-      <!-- ====== FOOTER ====== -->
       <footer>
         <div>© <span id="year"></span> Carol Kao. Built with HTML &amp; CSS on GitHub Pages.</div>
       </footer>
@@ -1153,7 +1198,6 @@
   </div>
 
   <script>
-    // 動態更新年份
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
