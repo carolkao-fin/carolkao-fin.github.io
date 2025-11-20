@@ -326,7 +326,7 @@
       white-space: nowrap;
     }
 
-    /* ====== Skills / Certs ====== */
+    /* ====== Skills / Certs / Grid ====== */
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -389,6 +389,42 @@
       left: 0;
       top: 0;
       color: #6b7280;
+    }
+
+    /* ====== Portfolio ====== */
+    .project-meta {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .project-desc {
+      font-size: 15px;
+      color: #374151;
+      margin: 8px 0 10px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      text-decoration: none;
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.45);
     }
 
     /* ====== Experience ====== */
@@ -530,6 +566,7 @@
       <nav class="nav-links">
         <a href="#about">關於我</a>
         <a href="#skills">專長與證照</a>
+        <a href="#portfolio">Portfolio</a>
         <a href="#experience">實務與活動</a>
       </nav>
     </div>
@@ -626,10 +663,10 @@
                     社創平台
                   </a>
                 </span>
-                <!-- 新增 Email 聯絡方式 -->
+                <!-- Email 聯絡方式 -->
                 <span class="contact-chip">
                   ✉ Email：
-                  <a href="mailto:your.email@example.com">carol.kao.fin@gmail.com</a>
+                  <a href="mailto:carol.kao.fin@gmail.com">carol.kao.fin@gmail.com</a>
                 </span>
               </div>
             </div>
@@ -690,6 +727,62 @@
               <li>獲選為 113 年度 BGS 終身榮譽會員（碩士）</li>
               <li>獲選為 114 年度斐陶斐學會榮譽會員（碩士）</li>
             </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ====== PORTFOLIO ====== -->
+      <section id="portfolio" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Portfolio</h2>
+          <span class="section-subtitle">作品與專案整理</span>
+        </div>
+
+        <div class="grid-2">
+          <!-- AitralyzeX 專案卡片 -->
+          <article class="card">
+            <h3>AitralyzeX｜AI 交易回測與策略解讀引擎</h3>
+            <div class="project-meta">Web App ・ Python ・ Streamlit ・ GitHub Pages</div>
+            <p class="project-desc">
+              AitralyzeX 是結合回測、策略設計與 AI 解讀的交易研究平台。
+              使用者可在網頁上選股、設定進出場規則，並由系統產出績效報表與自然語言說明，
+              協助理解每一個策略表現與風險特性。
+            </p>
+            <div class="tag-list">
+              <span class="tag">AI Trading</span>
+              <span class="tag">Backtesting</span>
+              <span class="tag">金融資料分析</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">GitHub Pages</span>
+            </div>
+            <a
+              class="btn-primary"
+              href="https://aitralyzex.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              查看 AitralyzeX Demo
+            </a>
+          </article>
+
+          <!-- 可預留未來其他專案 -->
+          <article class="card">
+            <h3>Research & Data Projects</h3>
+            <div class="project-meta">ESG ・ 市場力量 ・ 效率分析</div>
+            <p class="project-desc">
+              研究主題聚焦於台灣金融業與企業財務，例如：
+              證券商專利與效率、市場力量與創新、ESG 指標與企業價值等。
+              利用 Stata、SAS、Frontier 4.1 與 Python 進行實證分析與模型建構。
+            </p>
+            <div class="tag-list">
+              <span class="tag">Stochastic Frontier Analysis</span>
+              <span class="tag">ESG</span>
+              <span class="tag">市場力量</span>
+              <span class="tag">Tobit / Panel</span>
+            </div>
+            <p style="font-size:14px; color:var(--muted); margin-top:10px;">
+              後續可依論文與研究進度，補上公開簡報或論文連結。
+            </p>
           </article>
         </div>
       </section>
@@ -930,7 +1023,7 @@
             <!-- 6. 2025 明緯永續創新實踐家 -->
             <article class="exp-card">
               <div class="exp-card-header">
-                <div class="exp-role">2025 明緯永續創新實踍家工作人員</div>
+                <div class="exp-role">2025 明緯永續創新實踐家工作人員</div>
                 <div class="exp-org">計分與設備維護</div>
               </div>
               <ul>
